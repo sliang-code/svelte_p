@@ -1,0 +1,22 @@
+
+> svelte-monorepo@0.0.1 check /Users/fish/Desktop/17313/svelte_p
+> cd packages/svelte && pnpm build && cd ../../ && pnpm -r check
+
+
+> svelte@5.55.4 build /Users/fish/Desktop/17313/svelte_p/packages/svelte
+> rollup -c && pnpm generate
+
+[36m
+[1msrc/compiler/index.js[22m → [1mcompiler/index.js[22m...[39m
+[1m[33m(!) Circular dependencies[39m[22m
+src/compiler/utils/ast.js -> src/compiler/utils/builders.js -> src/compiler/utils/ast.js
+src/compiler/phases/scope.js -> src/compiler/phases/2-analyze/visitors/shared/utils.js -> src/compiler/phases/scope.js
+src/compiler/phases/3-transform/client/visitors/shared/element.js -> src/compiler/phases/3-transform/client/visitors/RegularElement.js -> src/compiler/phases/3-transform/client/visitors/shared/element.js
+[32mcreated [1mcompiler/index.js[22m in [1m1.8s[22m[39m
+
+> svelte@5.55.4 generate /Users/fish/Desktop/17313/svelte_p/packages/svelte
+> node scripts/process-messages && node ./scripts/generate-types.js
+
+Scope: 2 of 3 workspace projects
+packages/svelte check$ tsc --project tsconfig.runtime.json && tsc && cd ./tests/types && tsc
+packages/svelte check: Done
