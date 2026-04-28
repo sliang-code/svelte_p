@@ -10,6 +10,7 @@ export default test({
 		assert.ok(meta);
 		assert.ok(link);
 		assert.ok(script);
+		if (!meta || !link || !script) throw new Error('Expected head tags to exist');
 
 		assert.equal(meta.getAttribute('class'), null);
 		assert.equal(link.getAttribute('class'), null);

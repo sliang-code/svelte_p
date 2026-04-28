@@ -1,6 +1,10 @@
 import { flushSync } from 'svelte';
 import { test } from '../../test';
 
+/**
+ * @param {any} assert
+ * @param {HTMLHeadElement} head
+ */
 function assert_head_tags_have_no_class(assert, head) {
 	const meta = head.querySelector('meta[name="author"]');
 	const link = head.querySelector('link[rel="author"]');
@@ -9,6 +13,7 @@ function assert_head_tags_have_no_class(assert, head) {
 	assert.ok(meta);
 	assert.ok(link);
 	assert.ok(script);
+	if (!meta || !link || !script) throw new Error('Expected head tags to exist');
 
 	assert.equal(meta.getAttribute('class'), null);
 	assert.equal(link.getAttribute('class'), null);
